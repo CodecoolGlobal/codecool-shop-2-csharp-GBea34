@@ -36,6 +36,12 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
 
+        [Route("/chekout")]
+        public IActionResult Chekout()
+        {
+            throw new NotImplementedException();
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
