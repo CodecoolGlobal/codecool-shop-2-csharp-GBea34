@@ -4,8 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Codecool.CodecoolShop</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .dropbtn {
+            color: black;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            padding: 8px;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,7 +58,18 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Privacy">Privacy</a>
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    Categories
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#">Sweeet</a>
+                                    <a href="#">Sour</a>
+                                    <a href="#">Salty</a>
+                                    <a href="#">Chruncy</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
