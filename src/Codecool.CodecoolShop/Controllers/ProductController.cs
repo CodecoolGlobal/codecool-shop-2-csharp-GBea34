@@ -36,10 +36,10 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
 
-        [Route("/checkout")]
+        
         public IActionResult Checkout()
         {
-            throw new NotImplementedException();
+            return View();
         }
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
