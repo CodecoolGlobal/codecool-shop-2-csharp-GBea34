@@ -14,5 +14,10 @@ namespace Codecool.CodecoolShop.Models
             ProductCategory = productCategory;
             ProductCategory.Products.Add(this);
         }
+
+        public string PriceToString()
+        {
+            return DefaultPrice.ToString() + " " + Currency;
+        }
     }
 }
