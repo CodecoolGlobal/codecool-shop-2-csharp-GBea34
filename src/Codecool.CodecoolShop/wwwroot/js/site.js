@@ -2,7 +2,10 @@
 
 chekout = {
     button: function () {
-        let chekoutButton = document.getElementById("chekout");
-        chekoutButton.addEventListener('click',);
+        let checkoutButton = document.getElementById("checkout");
+        checkoutButton.addEventListener('click',this.checkout);
+    },
+    checkout: function (){
+        location.href ="/checkout"
     }
 }
