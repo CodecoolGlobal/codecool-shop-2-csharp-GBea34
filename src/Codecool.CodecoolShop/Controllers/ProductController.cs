@@ -27,7 +27,34 @@ namespace Codecool.CodecoolShop.Controllers
 
         public IActionResult Index()
         {
-            var products = ProductService.GetProductsForCategory(1);
+            var products = ProductService.GetProductsForCategory(1).ToList();
+            products.AddRange(ProductService.GetProductsForCategory(2).ToList());
+            products.AddRange(ProductService.GetProductsForCategory(3).ToList());
+            products.AddRange(ProductService.GetProductsForCategory(4).ToList());
+            return View(products.Distinct().ToList());
+        }
+
+        public IActionResult Sweet()
+        {
+            var products = ProductService.GetProductsForCategory(1).ToList();
+            return View(products.ToList());
+        }
+
+        public IActionResult Sour()
+        {
+            var products = ProductService.GetProductsForCategory(2).ToList();
+            return View(products.ToList());
+        }
+
+        public IActionResult Salty()
+        {
+            var products = ProductService.GetProductsForCategory(3).ToList();
+            return View(products.ToList());
+        }
+
+        public IActionResult Spicy()
+        {
+            var products = ProductService.GetProductsForCategory(4).ToList();
             return View(products.ToList());
         }
 
