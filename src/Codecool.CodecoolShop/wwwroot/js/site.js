@@ -16,6 +16,21 @@ const checkout = {
         
     }
 }
+let fetch = {
+    dataHandler:async function (route) {
+        const response = await fetch(route);
+        const data = await response.json();
+        if (data.NewsList.length === 0) {
+            return null;
+        }
+        return data.NewsList;
+    },
+    
+    getCartList:function (){
+        
+    }
+}
+//<p><a href="#">Product 1</a> <span className="price">$15</span></p>
 const HtmlFactory = {
     chekBox: function (){
         checked=!checked;
