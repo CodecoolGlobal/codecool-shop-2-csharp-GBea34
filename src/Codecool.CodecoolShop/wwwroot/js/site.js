@@ -6,7 +6,7 @@
 // Cart Modal display 
 let cart_modal = document.getElementById("cart-modal");
 let cart_button = document.getElementById("cart-button");
-let span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("cart-close")[0];
 
 cart_button.onclick = function() {
     cart_modal.style.display = "block";

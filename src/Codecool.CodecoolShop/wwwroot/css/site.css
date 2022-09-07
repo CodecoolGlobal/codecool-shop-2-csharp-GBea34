@@ -105,8 +105,8 @@ body {
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.cart-close:hover,
+.cart-close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
