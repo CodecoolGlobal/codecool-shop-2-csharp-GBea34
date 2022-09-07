@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Codecool.CodecoolShop.Daos;
 using Codecool.CodecoolShop.Daos.Implementations;
@@ -9,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+
 
 namespace Codecool.CodecoolShop.Controllers
 {
@@ -16,6 +20,9 @@ namespace Codecool.CodecoolShop.Controllers
     {
         private readonly ILogger<ProductController> _logger;
         public ProductService ProductService { get; set; }
+        
+        private List<Product> _cart = new List<Product>();
+
 
         public ProductController(ILogger<ProductController> logger)
         {
@@ -36,6 +43,16 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
 
+        [Route("AddCart/{id}")] 
+        public IActionResult AddCart(int id)
+        {
+            var sdm = ProductDaoMemory.GetInstance();
+            var product = sdm.Get(id);
+            _cart.Add(product);
+            
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -43,3 +60,8 @@ namespace Codecool.CodecoolShop.Controllers
         }
     }
 }
+
+
+/*ViewBag.cart = cart;
+            ViewBag.itemQty = cart.Sum(item => item.Quantity);
+            ViewBag.total = cart.Sum(item => item.Product.DefaultPrice);*/
