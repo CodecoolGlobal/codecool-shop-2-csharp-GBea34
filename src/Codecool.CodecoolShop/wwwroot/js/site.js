@@ -3,9 +3,9 @@ let checked = true;
 const checkout = {
     button: function () {
         let checkoutButton = document.getElementById("checkout");
-        checkoutButton.addEventListener('click',this.checkout);
+        checkoutButton.addEventListener('click',this.goToCheckout);
     },
-    checkout: function (){
+    goToCheckout: function (){
         location.href ="/checkout"
     }
 }
