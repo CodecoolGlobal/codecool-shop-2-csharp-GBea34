@@ -27,8 +27,131 @@ namespace Codecool.CodecoolShop.Controllers
 
         public IActionResult Index()
         {
-            var products = ProductService.GetProductsForCategory(1);
-            return View(products.ToList());
+            var products = ProductService.GetProductsForCategory(1).ToList();
+            products.AddRange(ProductService.GetProductsForCategory(2).ToList());
+            products.AddRange(ProductService.GetProductsForCategory(3).ToList());
+            products.AddRange(ProductService.GetProductsForCategory(4).ToList());
+            return View(products.Distinct().ToList());
+        }
+
+        public IActionResult Sweet()
+        {
+            var products = ProductService.GetProductsForCategory(1).ToList();
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Sour()
+        {
+            var products = ProductService.GetProductsForCategory(2).ToList();
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Salty()
+        {
+            var products = ProductService.GetProductsForCategory(3).ToList();
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Spicy()
+        {
+            var products = ProductService.GetProductsForCategory(4).ToList();
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Chio()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(1));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult CrikCrok()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(2));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult EatReal()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(3));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Lays()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(4));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult fini()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(5));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Manner()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(6));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Milka()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(7));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Mizo()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(8));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Pocky()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(9));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Snickers()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(10));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult SourPatch()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(11));
+            return View("NIndex", products.ToList());
+        }
+
+        public IActionResult Toffifee()
+        {
+            var pdm = ProductDaoMemory.GetInstance();
+            var sdm = SupplierDaoMemory.GetInstance();
+            var products = pdm.GetBy(sdm.Get(12));
+            return View("NIndex", products.ToList());
         }
 
         public IActionResult Privacy()
