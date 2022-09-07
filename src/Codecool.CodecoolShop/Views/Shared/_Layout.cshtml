@@ -6,42 +6,6 @@
     <title>@ViewData["Title"] - NomNomShop</title>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <style>
-        .dropbtn {
-            color: black;
-            font-size: 16px;
-            border: none;
-        }
-
-        .dropdown {
-            padding: 8px;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-            .dropdown-content a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
-
-                .dropdown-content a:hover {
-                    background-color: #ddd;
-                }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -68,6 +32,28 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sour">Sour</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Salty">Salty</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Spicy">Spicy</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    Suppliers
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Chio">Chio</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="CrikCrok">CrikCrok</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="EatReal">Eat Real</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Lays">Lays</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="fini">fini</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Manner">Manner</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Milka">Milka</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Mizo">Mizo</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Pocky">Pocky</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Snickers">Snickers</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="SourPatch">Sour Patch</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Toffifee">Toffifee</a>
                                 </div>
                             </div>
                         </li>
