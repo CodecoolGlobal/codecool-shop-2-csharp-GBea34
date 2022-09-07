@@ -7,6 +7,11 @@ const checkout = {
     },
     goToCheckout: function (){
         location.href ="/checkout"
+    },
+    checkBox: function(){ 
+        let checkBox = document.getElementById("check")
+        checkBox.addEventListener("click", HtmlFactory.chekBox)
+        
     }
 }
 const HtmlFactory = {
