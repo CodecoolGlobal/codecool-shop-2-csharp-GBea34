@@ -54,6 +54,8 @@ namespace Codecool.CodecoolShop
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Product}/{action=Index}/{id?}");
+                
+                
             });
 
             SetupInMemoryDatabases();
