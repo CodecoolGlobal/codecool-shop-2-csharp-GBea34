@@ -8,7 +8,7 @@ const checkout = {
         checkoutButton.addEventListener('click',this.goToCheckout);
     },
     goToCheckout: function (){
-        location.href ="/checkout"
+        location.href ="/product/checkout"
     },
     checkBox: function(){ 
         let checkBox = document.getElementById("check")
@@ -55,7 +55,7 @@ const HtmlFactory = {
         
     }
 }
-checkout.checkBox()
+
 // Cart Modal display 
 let cart_modal = document.getElementById("cart-modal");
 let cart_button = document.getElementById("cart-button");
@@ -74,3 +74,5 @@ window.onclick = function(event) {
         cart_modal.style.display = "none";
     }
 }
+checkout.button()
+checkout.checkBox()
