@@ -104,6 +104,9 @@ body {
   display: block;
 }
 /* ________________checkout_______________*/
+.checkoutPrice{
+  float: right;
+}
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;

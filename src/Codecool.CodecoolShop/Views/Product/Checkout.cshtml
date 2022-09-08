@@ -72,17 +72,22 @@
         <h4 id="cart">Cart
           <span class="price" style="color:black">
             <i class="fa fa-shopping-cart"></i>
+            @foreach (Product product in Model)
+            {
+              totalQuantity++;
+            }
             <b id="count">@totalQuantity</b>
           </span>
         </h4>
 
         <hr>@foreach (Product product in Model)
             {
-              totalQuantity++;
+              
               decimal productPrice = product.Quantity * product.DefaultPrice;
-              <p><span>@product.Name</span> <span className="price">@productPrice</span></p>
+              <p><span>@product.Name</span> <span  class="checkoutPrice">@product.PriceToString()</span></p>
+              totalPrice += productPrice;
             }
-        <p>Total <span class="price" style="color:black"><b>@totalPrice</b></span></p>
+        <p>Total <span class="price" style="color:black"><b>@totalPrice USD</b></span></p>
       </div>
     </div>
   </div>

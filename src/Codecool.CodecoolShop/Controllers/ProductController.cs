@@ -70,6 +70,12 @@ namespace Codecool.CodecoolShop.Controllers
             return View("Cart", InCart);
         }
         
+        [Route("Checkout")]
+        public ActionResult ViewCartCheckout()
+        {
+            List<Product> InCart = (List<Product>)ProductService.GetCart();
+            return View("Checkout", InCart);
+        }
 //---------------------------------------------------------------------
         public IActionResult Index()
         {
@@ -205,11 +211,7 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
 
-        public IActionResult Checkout()
-        {
-            return View();
-        }
-        
+      
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

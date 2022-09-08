@@ -4,7 +4,7 @@
         checkoutButton.addEventListener('click',event => {this.goToCheckout();});
     },
     goToCheckout: function (){
-        location.href ="/product/checkout"
+        location.href ="/checkout"
     }
 }
 checkout.button()
