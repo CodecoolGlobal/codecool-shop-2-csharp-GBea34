@@ -9,22 +9,68 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Codecool.CodecoolShop.Models;
 using Codecool.CodecoolShop.Services;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+
+
 
 namespace Codecool.CodecoolShop.Controllers
 {
+    
     public class ProductController : Controller
     {
         private readonly ILogger<ProductController> _logger;
         public ProductService ProductService { get; set; }
-
+        
         public ProductController(ILogger<ProductController> logger)
         {
             _logger = logger;
             ProductService = new ProductService(
                 ProductDaoMemory.GetInstance(),
-                ProductCategoryDaoMemory.GetInstance());
+                ProductCategoryDaoMemory.GetInstance(),
+                CartDaoMemory.GetInstance()
+            );
+        }
+        //-------------------------------------------------
+        [Route("add/{id}")]
+        public ActionResult Add(int id)
+        {
+            
+            var products = ProductService.GetAllProducts();
+            Product product = products.Where(t => t.Id == id).First();
+            List<Product> InCart = (List<Product>)ProductService.GetCart();
+            ProductService.cartDao.Add(product);
+
+            return RedirectToAction("Index", "Product");
+        }
+        
+        public ActionResult AddOneMore(int id)
+        {
+            
+            var products = ProductService.GetAllProducts();
+            Product product = products.Where(t => t.Id == id).First();
+            List<Product> InCart = (List<Product>)ProductService.GetCart();
+            ProductService.cartDao.Add(product);
+
+            return RedirectToAction("ViewCart", "Product");
         }
 
+
+        [Route("remove/{id}")]
+        public ActionResult Remove(int Id)
+        {
+            ProductService.cartDao.Remove(Id);
+
+            return RedirectToAction("ViewCart", "Product");
+        }
+
+        [Route("Cart")]
+        public ActionResult ViewCart()
+        {
+            List<Product> InCart = (List<Product>)ProductService.GetCart();
+            return View("Cart", InCart);
+        }
+        
+//---------------------------------------------------------------------
         public IActionResult Index()
         {
             var products = ProductService.GetProductsForCategory(1).ToList();
@@ -159,7 +205,6 @@ namespace Codecool.CodecoolShop.Controllers
             return View();
         }
 
-        
         public IActionResult Checkout()
         {
             return View();

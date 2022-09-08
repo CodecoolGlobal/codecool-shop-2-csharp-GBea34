@@ -1,15 +1,5 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-let checked = true;
+﻿let checked = true;
 const checkout = {
-    button: function () {
-        let checkoutButton = document.getElementById("checkout");
-        checkoutButton.addEventListener('click',this.goToCheckout);
-    },
-    goToCheckout: function (){
-        location.href ="/product/checkout"
-    },
     checkBox: function(){ 
         let checkBox = document.getElementById("check")
         checkBox.addEventListener("click", HtmlFactory.chekBox)
