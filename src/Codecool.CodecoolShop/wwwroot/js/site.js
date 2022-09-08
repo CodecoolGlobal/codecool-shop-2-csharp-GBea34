@@ -8,7 +8,7 @@ const checkout = {
     payButton :function (event){
        
         let button= document.getElementById("buuu")
-        button.addEventListener("click", ()=>window.location.href ="/")
+        button.addEventListener("click", ()=>window.location.href ="/product/Thanks")
 }
 
 }
