@@ -28,7 +28,6 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Home</a>
@@ -37,22 +36,22 @@
                         <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ViewCart">Cart</a>
                     </li>
-                            <div class="dropdown">
-                                <button class="dropbtn">
-                                    Categories
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <div class="dropdown-content">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sweet">Sweet</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sour">Sour</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Salty">Salty</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Spicy">Spicy</a>
-                                </div>
-
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                Categories
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sweet">Sweet</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sour">Sour</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Salty">Salty</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Spicy">Spicy</a>
                             </div>
+
                         </div>
-                    </li>
-                    <li class="nav-item">
+                        
+                        <li class="nav-item">
+                        
                         <div class="dropdown">
                             <button class="dropbtn">
                                 Suppliers
@@ -76,7 +75,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        
 
         <!-- cart button -->
         <button id="cart-button">
