@@ -1,24 +1,16 @@
 ﻿let checked = true;
 const checkout = {
-    checkBox: function(){ 
+    checkBox: function () {
         let checkBox = document.getElementById("check")
         checkBox.addEventListener("click", HtmlFactory.chekBox)
-        
-    }
-}
-let fetch = {
-    dataHandler:async function (route) {
-        const response = await fetch(route);
-        const data = await response.json();
-        if (data.NewsList.length === 0) {
-            return null;
-        }
-        return data.NewsList;
+
     },
-    
-    getCartList:function (){
-        
-    }
+    payButton :function (event){
+       
+        let button= document.getElementById("buuu")
+        button.addEventListener("click", ()=>window.location.href ="/")
+}
+
 }
 //<p><a href="#">Product 1</a> <span className="price">$15</span></p>
 const HtmlFactory = {
@@ -78,23 +70,6 @@ const HtmlFactory = {
     }
 }
 
-// Cart Modal display 
-let cart_modal = document.getElementById("cart-modal");
-let cart_button = document.getElementById("cart-button");
-let span = document.getElementsByClassName("cart-close")[0];
 
-cart_button.onclick = function() {
-    cart_modal.style.display = "block";
-}
-
-span.onclick = function() {
-    cart_modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == cart_modal) {
-        cart_modal.style.display = "none";
-    }
-}
-checkout.button()
+checkout.payButton()
 checkout.checkBox()
