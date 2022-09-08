@@ -15,19 +15,19 @@
         {
             @if (product.Quantity > 0)
             {
-
+                decimal productPrice;
+                productPrice = product.Quantity * product.DefaultPrice;
                 totalPrice += product.Quantity * product.DefaultPrice;
                 <tr class="col">
                     <th class="col-1"> @product.Name </th>
                     <th class="col-2"> @product.Quantity</th>
-                    <th class="col-3"> @product.DefaultPrice </th>
+                    <th class="col-3">@productPrice</th>
                     <th class="col-4"><a type="button" class="btn btn-primary" asp-controller="Product" asp-action="AddOneMore" asp-route-id="@product.Id" >Add</a></th>
                     <th class="col-5"><a type="button" class="btn btn-primary" asp-controller="Product" asp-action="Remove" asp-route-id="@product.Id">Remove</a></th>
                 </tr>
             }
         }
     </table>
-
 }
 
 
