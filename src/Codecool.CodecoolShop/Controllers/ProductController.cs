@@ -206,6 +206,10 @@ namespace Codecool.CodecoolShop.Controllers
             return View("NIndex", products.ToList());
         }
 
+        public IActionResult Thanks()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
