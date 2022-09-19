@@ -91,27 +91,27 @@ namespace Codecool.CodecoolShop
             supplierDataStore.Add(SourPatch);
             Supplier Toffifee = new Supplier { Name = "Toffifee", Description = "There's so much fun in Toffifee!" };
             supplierDataStore.Add(Toffifee);
-            ProductCategory Sweet = new ProductCategory { Name = "Sweet", Department = "", Description = "" };
+            ProductCategory Sweet = new ProductCategory { Name = "Sweet"};
             productCategoryDataStore.Add(Sweet);
-            ProductCategory Sour = new ProductCategory { Name = "Sour", Department = "", Description = "" };
+            ProductCategory Sour = new ProductCategory { Name = "Sour"};
             productCategoryDataStore.Add(Sour);
-            ProductCategory Salty = new ProductCategory { Name = "Salty", Department = "", Description = "" };
+            ProductCategory Salty = new ProductCategory { Name = "Salty"};
             productCategoryDataStore.Add(Salty);
-            ProductCategory Spicy = new ProductCategory { Name = "Spicy", Department = "", Description = "" };
+            ProductCategory Spicy = new ProductCategory { Name = "Spicy"};
             productCategoryDataStore.Add(Spicy);
-            productDataStore.Add(new Product { Name = "Chio Chees", DefaultPrice = 2.0m, Currency = "USD", Description = "", ProductCategories = {Salty}, Supplier = Chio });
-            productDataStore.Add(new Product { Name = "CrikCrok jalapeno", DefaultPrice = 1.5m, Currency = "USD", Description = "", ProductCategories = { Spicy, Salty}, Supplier = CrikCrok });
-            productDataStore.Add(new Product { Name = "Eat Real chilli&lemon", DefaultPrice = 5.0m, Currency = "USD", Description = "", ProductCategories = { Spicy, Sour }, Supplier = EatReal });
-            productDataStore.Add(new Product { Name = "fini Roller", DefaultPrice = 1.8m, Currency = "USD", Description = "", ProductCategories = { Sweet, Sour }, Supplier = fini });
-            productDataStore.Add(new Product { Name = "Lays Classic", DefaultPrice = 2.1m, Currency = "USD", Description = "", ProductCategories = { Salty }, Supplier = Lays });
-            productDataStore.Add(new Product { Name = "Manner WIEN", DefaultPrice = 0.9m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Manner });
-            productDataStore.Add(new Product { Name = "Milka Choc and Choc", DefaultPrice = 4.0m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Milka });
-            productDataStore.Add(new Product { Name = "Mizo rudi", DefaultPrice = 0.8m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Mizo });
-            productDataStore.Add(new Product { Name = "Pocky COOKIES and CREAM", DefaultPrice = 1.5m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Pocky });
-            productDataStore.Add(new Product { Name = "Pocky STRAWBERRY", DefaultPrice = 1.7m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Pocky });
-            productDataStore.Add(new Product { Name = "snickers", DefaultPrice = 2.1m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Snickers });
-            productDataStore.Add(new Product { Name = "sour patch kids", DefaultPrice = 3.0m, Currency = "USD", Description = "", ProductCategories = { Sour }, Supplier = SourPatch });
-            productDataStore.Add(new Product { Name = "Toffifee", DefaultPrice = 8.0m, Currency = "USD", Description = "", ProductCategories = { Sweet }, Supplier = Toffifee });
+            productDataStore.Add(new Product { Name = "Chio Chees", DefaultPrice = 2.0m, Currency = "USD", ProductCategories = {Salty}, Supplier = Chio });
+            productDataStore.Add(new Product { Name = "CrikCrok jalapeno", DefaultPrice = 1.5m, Currency = "USD", ProductCategories = { Spicy, Salty}, Supplier = CrikCrok });
+            productDataStore.Add(new Product { Name = "Eat Real chilli&lemon", DefaultPrice = 5.0m, Currency = "USD", ProductCategories = { Spicy, Sour }, Supplier = EatReal });
+            productDataStore.Add(new Product { Name = "fini Roller", DefaultPrice = 1.8m, Currency = "USD", ProductCategories = { Sweet, Sour }, Supplier = fini });
+            productDataStore.Add(new Product { Name = "Lays Classic", DefaultPrice = 2.1m, Currency = "USD", ProductCategories = { Salty }, Supplier = Lays });
+            productDataStore.Add(new Product { Name = "Manner WIEN", DefaultPrice = 0.9m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Manner });
+            productDataStore.Add(new Product { Name = "Milka Choc and Choc", DefaultPrice = 4.0m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Milka });
+            productDataStore.Add(new Product { Name = "Mizo rudi", DefaultPrice = 0.8m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Mizo });
+            productDataStore.Add(new Product { Name = "Pocky COOKIES and CREAM", DefaultPrice = 1.5m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Pocky });
+            productDataStore.Add(new Product { Name = "Pocky STRAWBERRY", DefaultPrice = 1.7m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Pocky });
+            productDataStore.Add(new Product { Name = "snickers", DefaultPrice = 2.1m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Snickers });
+            productDataStore.Add(new Product { Name = "sour patch kids", DefaultPrice = 3.0m, Currency = "USD", ProductCategories = { Sour }, Supplier = SourPatch });
+            productDataStore.Add(new Product { Name = "Toffifee", DefaultPrice = 8.0m, Currency = "USD", ProductCategories = { Sweet }, Supplier = Toffifee });
         }
     }
 }
