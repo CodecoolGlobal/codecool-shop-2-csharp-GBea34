@@ -15,8 +15,8 @@ namespace Codecool.CodecoolShop.Controllers
                 User user = new User { Name = name,  Email = email, Password = password};
                 UserDao usersDAO = new UserDao();
                 bool success = usersDAO.RegisterNewUser(user);
-                string serializeObject = Newtonsoft.Json.JsonConvert.SerializeObject(success);
-                return serializeObject;
+                string successed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
+                return successed;
             }
             return "";
         }
