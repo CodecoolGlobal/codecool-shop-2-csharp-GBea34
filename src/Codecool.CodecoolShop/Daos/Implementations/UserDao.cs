@@ -6,7 +6,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
 {
     public class UserDao
     {
-        private string connectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=shopDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+        private string connectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=shopDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public bool IsUserByEmail(User user)
         {
             bool success = false;
