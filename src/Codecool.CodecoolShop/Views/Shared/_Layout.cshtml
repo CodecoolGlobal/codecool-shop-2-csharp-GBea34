@@ -73,7 +73,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Toffifee">Toffifee</a>
                             </div>
                         </div>
-                            <button class="navbar-item user" onclick="document.getElementById('login').style.display='block'; document.getElementById('back').style.display='block';" style="width:auto;">Login</button>
+                            <button class="navbar-item user" onclick="Login()" style="width:auto;">Login</button>
                     </li>
                 </ul>
             </div>
@@ -91,7 +91,7 @@
 </div>
     <div id="back"></div>
         <div class="logform" id="login">
-        <span onclick="document.getElementById('login').style.display='none'; document.getElementById('back').style.display='none';"
+        <span onclick="Exit()"
                     class="close" title="Close Modal">&times;</span>
             <span class="title">Login</span>
 
@@ -111,14 +111,14 @@
             <div class="login-signup">
                 <span class="text">
                     Not a member?
-                <span onclick="document.getElementById('signup').style.display='block'; document.getElementById('login').style.display='none';">Signup Now</span>
+                <span onclick="Signup()">Signup Now</span>
                 </span>
             </div>
         </div>
 
         <!-- Registration Form -->
         <div class="logform" id="signup">
-        <span onclick="document.getElementById('signup').style.display='none'; document.getElementById('back').style.display='none';"
+        <span onclick="Exit()"
                     class="close" title="Close Modal">&times;</span>
             <span class="title">Registration</span>
 
@@ -156,7 +156,7 @@
             <div class="login-signup">
                 <span class="text">
                     Already a member?
-                <span onclick="document.getElementById('login').style.display='block'; document.getElementById('signup').style.display='none';">Login Now</span>
+                <span onclick="Login()">Login Now</span>
                 </span>
             </div>
         </div>
