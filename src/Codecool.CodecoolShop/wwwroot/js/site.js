@@ -73,3 +73,25 @@ const HtmlFactory = {
 
 checkout.payButton()
 checkout.checkBox()
+
+// login form
+function Login() {
+    document.getElementById('back').style.display = 'block';
+    if (document.getElementById('signup').style.display == 'block') {
+        document.getElementById('signup').style.display = 'none';
+    }
+    document.getElementById('login').style.display = 'block';
+}
+
+function Signup() {
+    if (document.getElementById('login').style.display == 'block') {
+        document.getElementById('login').style.display = 'none'
+    }
+    document.getElementById('signup').style.display = 'block';
+}
+
+function Exit() {
+    document.getElementById('back').style.display = 'none';
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('signup').style.display = 'none';
+}
