@@ -6,14 +6,19 @@ namespace Codecool.CodecoolShop.Controllers
 {
     public class DataController : Controller
     {
-        [Route ("/registration/{name}/{email}/{password}")]
-        public string registration(string name, string email, string password)
+        [HttpPost]
+        public string registration(string name, string email, string passwordOne, string passwordTwo)
         {
-            User user = new User { Name = name,  Email = email, Password = password};
-            UserDao usersDAO = new UserDao();
-            bool success = usersDAO.RegisterNewUser(user);
-            string serializeObject = Newtonsoft.Json.JsonConvert.SerializeObject(success);
-            return serializeObject;
+            if (passwordOne == passwordTwo)
+            {
+                string password = passwordOne;
+                User user = new User { Name = name,  Email = email, Password = password};
+                UserDao usersDAO = new UserDao();
+                bool success = usersDAO.RegisterNewUser(user);
+                string serializeObject = Newtonsoft.Json.JsonConvert.SerializeObject(success);
+                return serializeObject;
+            }
+            return "";
         }
     }
 }
