@@ -51,7 +51,7 @@ export const userActivity = {
         let regButton = document.querySelector("#signUpButton")
         regButton.addEventListener("click", ()=> {
             this.registration();
-            login();
+            
         })
     },
     
