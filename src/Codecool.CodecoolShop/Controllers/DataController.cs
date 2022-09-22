@@ -27,7 +27,7 @@ namespace Codecool.CodecoolShop.Controllers
         public ActionResult SaveUserCart([FromQuery] string products)
         {
             DBConnection dbConnection = new DBConnection();
-            string query = $"INSERT INTO conection_chart_user(user_id, chart) VALUES(1, {products.ToString()})";
+            string query = $"INSERT INTO chart(creation_time, total_price, products) VALUES(CURDATE(), 1 , {products.ToString()})";
             dbConnection.ExecuteQuery(query);
 
             return Ok(Json("Well Done"));
