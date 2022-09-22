@@ -143,7 +143,6 @@ input[type=text], input[type=email], input[type=password] {
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 3px;
 }
 
 label {
@@ -246,6 +245,8 @@ span.price {
     margin: 10% 20%;
     border: 1px solid #888;
     width: 60%;
+    padding: 20px;
+    border-radius: 30px;
 }
 
 #back {
@@ -255,4 +256,13 @@ span.price {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.2);
+}
+
+.title{
+    font-size: larger;
+    padding:0px, 0px, 10px, 0px;
+}
+
+.i{
+    border-radius: 10px;
 }

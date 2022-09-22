@@ -92,20 +92,21 @@
 </div>
     <div id="back"></div>
         <div class="logform" id="login">
-        <span id="exit"
-                    class="close" title="Close Modal">&times;</span>
+
+     <div class="f">
+        <span id="exit" class="close" title="Close Modal">&times;</span>
             <span class="title">Login</span>
 
             <form >
                 <div class="input-field">
-                    <input id="loginEmail" type="email" placeholder="Enter your email" required>
+                    <input class="i" id="loginEmail" type="email" placeholder="Enter your email" required>
                 </div>
                 <div class="input-field">
-                    <input id="loginPassword" type="password" class="password" placeholder="Enter your password" required>
+                    <input id="loginPassword" type="password" class="password i" placeholder="Enter your password" required>
                     <i class="uil uil-eye-slash showHidePw"></i>
                 </div>
                 <div class="input-field button">
-                    <input id=loginButton value="Login">
+                    <input class="i" id=loginButton value="Login">
                 </div>
             </form>
 
@@ -114,6 +115,7 @@
                     Not a member?
                 <span id="signupNow">Signup Now</span>
                 </span>
+            </div>
             </div>
         </div>
 
@@ -125,20 +127,25 @@
 
             <form >
                 <div class="input-field">
-                    <input  id="registrationName" name="name" type="text" placeholder="Enter your name" required>
+                    <input class="i" id="registrationName" name="name" type="text" placeholder="Enter your name" required>
                 </div>
                 <div class="input-field">
-                    <input id="registrationEmail" name="email" type="text" placeholder="Enter your email" required>
+                    <input class="i" id="registrationEmail" name="email" type="text" placeholder="Enter your email" required>
                 </div>
                 <div class="input-field">
-                    <input id="password1" name="passwordOne" type="password" class="password" placeholder="Create a password" required>
+                    <input id="password1" name="passwordOne" type="password" class="password i" placeholder="Create a password" required>
                 </div>
                 <div class="input-field">
-                    <input id="password2" name="passwordTwo" type="password" class="password" placeholder="Confirm a password" required>
+                    <input id="password2" name="passwordTwo" type="password" class="password i" placeholder="Confirm a password" required>
                 </div>
-
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                    <input class="i" type="checkbox" id="termCon">
+                    <label for="termCon" class="text">By checking this you accept our <a asp-area="" asp-controller="Product" asp-action="Privacy">Privacy policy</a></label>
+                    </div>
+                </div>
                 <div class="input-field button">
-                    <input id="signUpButton" value="Signup">
+                    <input class="i" id="signUpButton" value="Signup">
                 </div>
             </form>
 
