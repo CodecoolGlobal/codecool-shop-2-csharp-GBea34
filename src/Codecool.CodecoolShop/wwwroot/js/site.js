@@ -15,10 +15,10 @@ const HtmlFactory = {
             aTag.innerText = data[i]['Name'];
             let priceSpan = document.createElement("span")
             aTag.appendChild(priceSpan);
-            priceSpan.innerText=data[i]['DefaultPrice'];
-            
+            priceSpan.innerText = data[i]['DefaultPrice'];
+
         }
-        
+
     },
 }
 
@@ -32,14 +32,25 @@ function Login() {
 }
 
 function Signup() {
-    if (document.getElementById('login').style.display == 'block') {
+
+    document.querySelector("#signupNow").addEventListener("click",()=>{
+        if (document.getElementById('login').style.display === 'block') {
         document.getElementById('login').style.display = 'none'
     }
-    document.getElementById('signup').style.display = 'block';
+        document.getElementById('signup').style.display = 'block';})
+    
 }
 
+function exitButtons(){
+    document.querySelector("#exit").addEventListener("click", Exit);
+    document.querySelector("#exitNow").addEventListener("click", Exit);
+}
 function Exit() {
     document.getElementById('back').style.display = 'none';
     document.getElementById('login').style.display = 'none';
     document.getElementById('signup').style.display = 'none';
 }
+Signup();
+exitButtons()
+loginButtons();
+userActivity.regButton();
