@@ -40,19 +40,12 @@ namespace Codecool.CodecoolShop.Controllers
 
         public void ExecuteQuery(string query)
         {
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+                command.Connection.Close();
             }
         }
         
