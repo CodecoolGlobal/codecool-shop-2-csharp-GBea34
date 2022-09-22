@@ -13,13 +13,21 @@ namespace Codecool.CodecoolShop.Controllers
 {
     public class DataController : Controller
     {
-        [HttpPost]
+        UserDao usersDao = new UserDao();
+        [HttpGet]
         public string Registration([FromBody] User user)
         {
-            UserDao usersDao = new UserDao();
+            
             bool success = usersDao.RegisterNewUser(user);
             string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
             return succeed;
+        }
+
+        public string GetNameByEmail([FromBody] User user)
+        {
+            user.Name = usersDao.FindUserNameByEmail(user.Email);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(user);
+            return result;
         }
 
         [HttpGet]
