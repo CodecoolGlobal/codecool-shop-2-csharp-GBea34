@@ -13,8 +13,9 @@
 checkout.button();
 
 async function saveCart(event) {
-    const package = event.target.dataset.products;
-    await apiGet('/saveCart/?products=' + package);
+    const products = event.target.dataset.products;
+    const price = event.target.dataset.price;
+    await apiGet('/saveCart/?products=' + products + "?price=" + price);
     alert("Cart Saved");
 }
 
