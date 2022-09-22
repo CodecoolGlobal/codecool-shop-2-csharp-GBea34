@@ -1,8 +1,4 @@
-﻿let checked = true;
-const checkout = {
-    checkBox: function () {
-        let checkBox = document.getElementById("check")
-        checkBox.addEventListener("click", HtmlFactory.chekBox)
+﻿import {userActivity} from "./UserActivity.js";
 
     },
     payButton :function (event){
