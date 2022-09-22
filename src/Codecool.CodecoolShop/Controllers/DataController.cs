@@ -23,46 +23,12 @@ namespace Codecool.CodecoolShop.Controllers
 
         [HttpGet]
         [Route("/saveCart/")]
-        public ActionResult SaveUserCart([FromQuery] string products)
+        public ActionResult SaveUserCart([FromQuery] string products, decimal price)
         {
-            DBConnection dbConnection = new DBConnection();
-            string query = $"INSERT INTO chart(creation_time, total_price, products) VALUES(CURDATE(), 1 , {products.ToString()})";
-            dbConnection.ExecuteQuery(query);
+            var saveCartDao = new SaveCartDao();
+            var success = saveCartDao.SaveCart(products, price);
 
-            return Ok(Json("Well Done"));
+            return Ok(Json(success));
         }
     }
-
-    public class DBConnection
-    {
-        public string ConnectionString => ConfigurationManager.AppSettings["connectionString"];
-
-        public void ExecuteQuery(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                command.Connection.Close();
-            }
-        }
-        
-        public bool TestConnection()
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
-            }
-        }
-    }
-
 }

@@ -36,7 +36,7 @@
 </div>
 
 <button id="checkout2">Checkout</button>
-<button class="btn btn-dark" id="saveCart" data-products="@Json.Serialize(Model).ToString()">Save Cart</button>
+<button class="btn btn-dark" id="saveCart" data-products="@Json.Serialize(Model).ToString()" data-price="@totalPrice">Save Cart</button>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
