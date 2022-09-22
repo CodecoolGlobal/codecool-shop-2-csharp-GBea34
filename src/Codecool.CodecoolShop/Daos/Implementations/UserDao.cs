@@ -94,8 +94,34 @@ namespace Codecool.CodecoolShop.Daos.Implementations
                     }
                 }
             }
-
             return success;
+        }
+        
+        public string FindUserNameByEmail(string email)
+        {
+            string username = null;
+            string SQLstatment = "SELECT * FROM dbo.ShopUsers WHERE EMAIL= @email";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(SQLstatment, connection);
+                command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 100).Value = email;
+
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                       
+                        username = reader["ful_name"].ToString();
+                        
+                    }
+
+                    connection.Close();
+                }
+            }
+
+
+            return username;
         }
     }
 }
