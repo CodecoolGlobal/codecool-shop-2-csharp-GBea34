@@ -7,12 +7,12 @@ namespace Codecool.CodecoolShop.Controllers
     public class DataController : Controller
     {
         [HttpPost]
-        public string registration( [FromBody]User user)
+        public string Registration( [FromBody]User user)
         {
-                UserDao usersDAO = new UserDao();
-                bool success = usersDAO.RegisterNewUser(user);
-                string successed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
-                return successed;
+                UserDao usersDao = new UserDao();
+                bool success = usersDao.RegisterNewUser(user);
+                string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
+                return succeed;
         }
     }
 }
