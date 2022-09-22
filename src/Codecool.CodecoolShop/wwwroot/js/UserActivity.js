@@ -16,5 +16,14 @@ export const userActivity = {
     regButton: function (){
         let regButton=document.querySelector("#signUpButton")
         regButton.addEventListener("click", this.registration)
+    },
+    login: function(){
+        let email = document.querySelector("#loginEmail").value;
+        let password = document.querySelector("#loginPassword").value;
+        apiPost("Data/Login", {email:email,password:password}).then(data=>console.log(data))
+    },
+    loginbutton: function (){
+        let logButton = document.querySelector("#loginButton");
+        logButton.addEventListener("click",this.login )
     }
 }
