@@ -2,7 +2,7 @@
 export const dataHandler = {
     registration: async function (email, password, name) {
         return await apiGet(`/registration/${name}/${email}/${password}`);
-    },
+    }
 }
 
 
