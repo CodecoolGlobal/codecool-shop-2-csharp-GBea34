@@ -1,9 +1,4 @@
 ﻿
-export const dataHandler = {
-    registration: async function (email, password, name) {
-        return await apiGet(`/registration/${name}/${email}/${password}`);
-    }
-}
 
 
 async function apiGet(url) {
@@ -15,7 +10,7 @@ async function apiGet(url) {
     }
 }
 
-async function apiPost(url, payload) {
+export async function apiPost(url, payload) {
     const response = await fetch(url, {
         method: "POST",
         headers: {

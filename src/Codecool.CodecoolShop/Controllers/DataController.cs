@@ -12,14 +12,13 @@ namespace Codecool.CodecoolShop.Controllers
 {
     public class DataController : Controller
     {
-        [Route ("/registration/{name}/{email}/{password}")]
-        public string registration(string name, string email, string password)
+        [HttpPost]
+        public string Registration( [FromBody]User user)
         {
-            User user = new User { Name = name,  Email = email, Password = password};
-            UserDao usersDAO = new UserDao();
-            bool success = usersDAO.RegisterNewUser(user);
-            string serializeObject = Newtonsoft.Json.JsonConvert.SerializeObject(success);
-            return serializeObject;
+                UserDao usersDao = new UserDao();
+                bool success = usersDao.RegisterNewUser(user);
+                string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
+                return succeed;
         }
 
         [HttpGet]

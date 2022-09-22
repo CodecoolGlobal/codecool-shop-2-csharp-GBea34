@@ -10,7 +10,7 @@ namespace Codecool.CodecoolShop.Daos.Implementations
         public bool IsUserByEmail(User user)
         {
             bool success = false;
-            string SQLstatment = "SELECT * FROM dbo.Users WHERE EMAIL= @email";
+            string SQLstatment = "SELECT * FROM dbo.ShopUsers WHERE EMAIL= @email";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(SQLstatment, connection);
@@ -40,13 +40,13 @@ namespace Codecool.CodecoolShop.Daos.Implementations
             if (!IsUserByEmail(user))
             {
                 string SQLstatment =
-                    "Insert Into dbo.ShopUsers (EMAIL, PASSWORD, Name) values (@email, @password, @name);";
+                    "Insert Into dbo.ShopUsers (email, password, ful_name) values (@email, @password, @name);";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(SQLstatment, connection);
-                    command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 100).Value = user.Email;
-                    command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = user.Password;
-                    command.Parameters.Add("@name", System.Data.SqlDbType.Bit).Value = user.Name;
+                    command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50).Value = user.Email;
+                    command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
+                    command.Parameters.Add("@name", System.Data.SqlDbType.VarChar, 50).Value = user.Name;
 
 
                     try
