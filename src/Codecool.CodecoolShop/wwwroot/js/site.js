@@ -25,7 +25,7 @@ const HtmlFactory = {
 // login form
 function Login() {
     document.getElementById('back').style.display = 'block';
-    if (document.getElementById('signup').style.display == 'block') {
+    if (document.getElementById('signup').style.display === 'block') {
         document.getElementById('signup').style.display = 'none';
     }
     document.getElementById('login').style.display = 'block';
