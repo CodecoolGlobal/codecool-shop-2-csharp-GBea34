@@ -41,14 +41,24 @@ function Signup() {
     
 }
 function loginButtons(){
-    document.querySelector("#logNow").addEventListener("click", Login);
-    document.querySelector("#loginNow").addEventListener("click", Login);
+    if (document.querySelector("#logNow").innerText==="Login"){
+        let logButton = document.querySelector("#logNow");
+        logButton.addEventListener("click", Login);
+        document.querySelector("#loginNow").addEventListener("click", Login);
+    }else{
+        let logButton = document.querySelector("#logNow");
+        logButton.addEventListener("click", ()=>{
+            logButton.innerText='Login';
+            window.sessionStorage.clear();
+        })
+    }
+    
 }
 function exitButtons(){
     document.querySelector("#exit").addEventListener("click", Exit);
     document.querySelector("#exitNow").addEventListener("click", Exit);
 }
-function Exit() {
+export function Exit() {
     document.getElementById('back').style.display = 'none';
     document.getElementById('login').style.display = 'none';
     document.getElementById('signup').style.display = 'none';
