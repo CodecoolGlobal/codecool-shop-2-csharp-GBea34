@@ -40,7 +40,10 @@ function Signup() {
         document.getElementById('signup').style.display = 'block';})
     
 }
-
+function loginButtons(){
+    document.querySelector("#logNow").addEventListener("click", Login);
+    document.querySelector("#loginNow").addEventListener("click", Login);
+}
 function exitButtons(){
     document.querySelector("#exit").addEventListener("click", Exit);
     document.querySelector("#exitNow").addEventListener("click", Exit);
