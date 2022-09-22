@@ -16,6 +16,19 @@ function Exit() {
     document.getElementById('login').style.display = 'none';
     document.getElementById('signup').style.display = 'none';
 }
+function login() {
+    let email = document.querySelector("#loginEmail").value;
+    let password = document.querySelector("#loginPassword").value;
+    apiPost("Data/Login", {email: email, password: password}).then(data => {
+        console.log(data)
+        if (data) {
+            showLoggedIn(email);
+        }
+        else{
+            alert("Wrong email or password!");
+        }
+    })
+}
 export const userActivity = {
     registration: function () {
         let name = document.querySelector("#registrationName").value;
@@ -27,29 +40,24 @@ export const userActivity = {
                 name: name,
                 email: email,
                 password: password1
-            }).then(data => console.log(data))
+            }).then(data => console.log(data));
+            Exit();
         } else {
-            prompt("nemnyert")
+            alert("Registration Failed")
         }
 
     },
     regButton: function () {
         let regButton = document.querySelector("#signUpButton")
-        regButton.addEventListener("click", this.registration)
-    },
-    login: function () {
-        let email = document.querySelector("#loginEmail").value;
-        let password = document.querySelector("#loginPassword").value;
-        apiPost("Data/Login", {email: email, password: password}).then(data => {
-            console.log(data)
-            if (data) {
-                showLoggedIn(email);
-            }
+        regButton.addEventListener("click", ()=> {
+            this.registration();
+            login();
         })
     },
-    loginbutton: function () {
+    
+    loginButton: function () {
         let logButton = document.querySelector("#loginButton");
-        logButton.addEventListener("click", this.login)
+        logButton.addEventListener("click", login)
     }
 
     

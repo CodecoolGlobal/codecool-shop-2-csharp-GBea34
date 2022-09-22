@@ -78,4 +78,4 @@ Signup();
 exitButtons()
 loginButtons();
 userActivity.regButton();
-userActivity.loginbutton();
+userActivity.loginButton();
