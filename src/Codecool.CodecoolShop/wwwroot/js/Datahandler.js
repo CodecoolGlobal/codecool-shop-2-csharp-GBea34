@@ -1,8 +1,4 @@
 ﻿
-export const dataHandler = {
-    registration: apiPost("Data/registration", { name: name, email: email, password: password })
-    },
-}
 
 
 async function apiGet(url) {
@@ -14,7 +10,7 @@ async function apiGet(url) {
     }
 }
 
-async function apiPost(url, payload) {
+export async function apiPost(url, payload) {
     const response = await fetch(url, {
         method: "POST",
         headers: {
