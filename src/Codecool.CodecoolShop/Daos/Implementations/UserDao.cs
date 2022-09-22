@@ -7,6 +7,39 @@ namespace Codecool.CodecoolShop.Daos.Implementations
     public class UserDao
     {
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=shopDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
+
+        public bool IsUserByEmailAndPassword(User user)
+        {
+            bool success = false;
+            string SQLstatment = "SELECT * FROM dbo.ShopUsers WHERE EMAIL= @email AND PASSWORD= @password";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(SQLstatment, connection);
+                command.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50).Value = user.Email;
+                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
+
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine(reader);
+                    if (reader.HasRows)
+                    {
+                        success = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return success;
+        }
+
+        
         public bool IsUserByEmail(User user)
         {
             bool success = false;
