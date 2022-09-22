@@ -28,30 +28,30 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                  <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Home</a>
-                        </li>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Home</a>
+                    </li>
                         
-                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ViewCart">Cart</a>
                     </li>
-                        <div class="dropdown">
-                            <button class="dropbtn">
-                                Categories
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sweet">Sweet</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sour">Sour</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Salty">Salty</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Spicy">Spicy</a>
-                            </div>
-
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Categories
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sweet">Sweet</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Sour">Sour</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Salty">Salty</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Spicy">Spicy</a>
                         </div>
+
+                    </div>
                         
-                        <li class="nav-item">
+                    <li class="nav-item">
                         
                         <div class="dropdown">
                             <button class="dropbtn">
@@ -73,9 +73,10 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Toffifee">Toffifee</a>
                             </div>
                         </div>
-                            <button class="navbar-item user" onclick="Login()" style="width:auto;">Login</button>
+                        <button id="logNow" class="navbar-item user" style="width:auto;">Login</button>
                     </li>
                 </ul>
+            </div>
             </div>
         
 
@@ -91,28 +92,28 @@
 </div>
     <div id="back"></div>
         <div class="logform" id="login">
-            <div class="f">
-        <span onclick="Exit()"
-                    class="close" title="Close Modal">&times;</span>
+
+     <div class="f">
+        <span id="exit" class="close" title="Close Modal">&times;</span>
             <span class="title">Login</span>
 
-            <form action="/login" method="post">
+            <form >
                 <div class="input-field">
-                    <input class="i" type="email" placeholder="Enter your email" required>
+                    <input class="i" id="loginEmail" type="email" placeholder="Enter your email" required>
                 </div>
                 <div class="input-field">
-                    <input class="i" type="password" class="password" placeholder="Enter your password" required>
+                    <input id="loginPassword" type="password" class="password i" placeholder="Enter your password" required>
                     <i class="uil uil-eye-slash showHidePw"></i>
                 </div>
                 <div class="input-field button">
-                    <input class="i" type="submit" value="Login">
+                    <input class="i" id=loginButton value="Login">
                 </div>
             </form>
 
             <div class="login-signup">
                 <span class="text">
                     Not a member?
-                <span onclick="Signup()">Signup Now</span>
+                <span id="signupNow">Signup Now</span>
                 </span>
             </div>
             </div>
@@ -120,45 +121,38 @@
 
         <!-- Registration Form -->
         <div class="logform" id="signup">
-        <span onclick="Exit()"
+        <span id="exitNow"
                     class="close" title="Close Modal">&times;</span>
             <span class="title">Registration</span>
 
-            <form action="#">
+            <form >
                 <div class="input-field">
-                <input class="i" type="text" placeholder="Enter your name" required>
-                    <i class="uil uil-user"></i>
+                    <input class="i" id="registrationName" name="name" type="text" placeholder="Enter your name" required>
                 </div>
                 <div class="input-field">
-                <input class="i" type="text" placeholder="Enter your email" required>
-                    <i class="uil uil-envelope icon"></i>
+                    <input class="i" id="registrationEmail" name="email" type="text" placeholder="Enter your email" required>
                 </div>
                 <div class="input-field">
-                <input class="i" type="password" class="password" placeholder="Create a password" required>
-                    <i class="uil uil-lock icon"></i>
+                    <input id="password1" name="passwordOne" type="password" class="password i" placeholder="Create a password" required>
                 </div>
                 <div class="input-field">
-                <input class="i" type="password" class="password" placeholder="Confirm password" required>
-                    <i class="uil uil-lock icon"></i>
-                    <i class="uil uil-eye-slash showHidePw"></i>
+                    <input id="password2" name="passwordTwo" type="password" class="password i" placeholder="Confirm a password" required>
                 </div>
-
                 <div class="checkbox-text">
                     <div class="checkbox-content">
                     <input class="i" type="checkbox" id="termCon">
                     <label for="termCon" class="text">By checking this you accept our <a asp-area="" asp-controller="Product" asp-action="Privacy">Privacy policy</a></label>
                     </div>
                 </div>
-
                 <div class="input-field button">
-                    <input class="i" type="button" value="Sign up">
+                    <input class="i" id="signUpButton" value="Signup">
                 </div>
             </form>
 
             <div class="login-signup">
                 <span class="text">
                     Already a member?
-                <span onclick="Login()">Login Now</span>
+                <span id="loginNow">Login Now</span>
                 </span>
             </div>
         </div>
@@ -170,7 +164,7 @@
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+<script type="module" src="~/js/site.js" asp-append-version="true"></script>
 @RenderSection("Scripts", required: false)
 </body>
 </html>
