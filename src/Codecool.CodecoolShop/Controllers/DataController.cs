@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using Codecool.CodecoolShop.Daos.Implementations;
 using Codecool.CodecoolShop.Models;
+using Codecool.CodecoolShop.Services;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -12,13 +13,22 @@ namespace Codecool.CodecoolShop.Controllers
 {
     public class DataController : Controller
     {
+        UserDao _userDao = new UserDao();
         [HttpPost]
-        public string Registration( [FromBody]User user)
+        
+        public string Registration([FromBody] User user)
         {
-                UserDao usersDao = new UserDao();
-                bool success = usersDao.RegisterNewUser(user);
-                string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
-                return succeed;
+            
+            bool success = _userDao.RegisterNewUser(user);
+            string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(success);
+            return succeed;
+        }
+
+        public string GetNameByEmail([FromBody] User user)
+        {
+            user.Name = _userDao.FindUserNameByEmail(user.Email);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(user);
+            return result;
         }
 
         [HttpGet]
@@ -31,38 +41,54 @@ namespace Codecool.CodecoolShop.Controllers
 
             return Ok(Json("Well Done"));
         }
-    }
 
-    public class DBConnection
-    {
-        public string ConnectionString => ConfigurationManager.AppSettings["connectionString"];
-
-        public void ExecuteQuery(string query)
+        public string Login([FromBody]User user)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            
+            SecurityService security = new SecurityService();
+            UserDao userDao = new UserDao();
+            if (security.IsValid(user))
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                command.Connection.Close();
+                string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(true);
+                return succeed;
+            }
+            else 
+            {
+                string succeed = Newtonsoft.Json.JsonConvert.SerializeObject(false);
+                return succeed;
             }
         }
-        
-        public bool TestConnection()
+
+        public class DBConnection
         {
-            using (var connection = new SqlConnection(ConnectionString))
+            public string ConnectionString => ConfigurationManager.AppSettings["connectionString"];
+
+            public void ExecuteQuery(string query)
             {
-                try
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    connection.Open();
-                    return true;
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                    command.Connection.Close();
                 }
-                catch (Exception e)
+            }
+
+            public bool TestConnection()
+            {
+                using (var connection = new SqlConnection(ConnectionString))
                 {
-                    return false;
+                    try
+                    {
+                        connection.Open();
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        return false;
+                    }
                 }
             }
         }
     }
-
 }
